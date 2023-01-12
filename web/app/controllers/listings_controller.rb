@@ -8,6 +8,7 @@ class ListingsController < ApplicationController
 
   # GET /listings/1 or /listings/1.json
   def show
+    @listing.update(views: @listing.views + 1)
   end
 
   # GET /listings/new
@@ -22,7 +23,8 @@ class ListingsController < ApplicationController
   # POST /listings or /listings.json
   def create
     @listing = Listing.new(listing_params)
-
+    @listing.user = current_user
+    
     respond_to do |format|
       if @listing.save
         format.html { redirect_to listing_url(@listing), notice: "Listing was successfully created." }
