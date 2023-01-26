@@ -24,6 +24,11 @@
     <%= listing.price %>
   </p>
 
+<% listing.pictures.each do |picture| %>
+<%= image_tag picture %>
+<% end %>
+
+
   <h6><%= pluralize(listing.views, "view") %></h6>
 
 </div>

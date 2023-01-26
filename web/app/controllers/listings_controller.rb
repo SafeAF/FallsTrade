@@ -8,7 +8,7 @@ class ListingsController < ApplicationController
 
   # GET /listings/1 or /listings/1.json
   def show
-    @listing.update(views: @listing.views + 1)
+    #@listing.update(views: @listing.views + 1)
   end
 
   # GET /listings/new
