@@ -24,7 +24,7 @@ class ListingsController < ApplicationController
   def create
     @listing = Listing.new(listing_params)
     @listing.user = current_user
-    
+
     respond_to do |format|
       if @listing.save
         format.html { redirect_to listing_url(@listing), notice: "Listing was successfully created." }
@@ -67,6 +67,6 @@ class ListingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def listing_params
-      params.require(:listing).permit(:title, :category, :description, :location, :price)
+      params.require(:listing).permit(:title, :category, :description, :location, :price, pictures: [])
     end
 end
