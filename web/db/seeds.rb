@@ -5,3 +5,76 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require 'faker'
+
+u = User.new
+u.email = "frodo@example.com"
+u.password = 'password'
+u.password_confirmation = 'password'
+u.name = "Frodo Baggins"
+u.bio = Faker::Lorem.paragraph(sentence_count: 3)
+u.save!
+
+u2 = User.new
+u2.email = "bilbo@example.com"
+u2.password = 'password'
+u2.password_confirmation = 'password'
+u2.name = "Bilbo Baggins"
+u2.bio = Faker::Lorem.paragraph(sentence_count: 3)
+u2.save!
+
+
+u.listings << Listing.create(
+  title: "Battleship",
+  category: "Equipment",
+  description: Faker::Lorem.sentence(word_count: 15),
+  location: "Pirate Bay",
+  price: "23000.00"
+)
+
+u.listings << Listing.create(
+  title: "Diesel Exhaust Fluid",
+  category: "Consumables",
+  description: Faker::Lorem.sentence(word_count: 7),
+  location: "Washington DC",
+  price: "4.50"
+)
+
+u.listings << Listing.create(
+  title: "Used Car",
+  category: "Consumables",
+  description: Faker::Lorem.sentence(word_count: 7),
+  location: "Twin",
+  price: "200000.00"
+)
+
+u.save!
+
+
+u2 = User.last
+
+u2.listings << Listing.create(
+  title: "Muffler Bearings",
+  category: "Equipment",
+  description: Faker::Lorem.sentence(word_count: 10),
+  location: "Hornswaggle",
+  price: "15.00"
+)
+
+u2.listings << Listing.create(
+  title: "Horse Butt Nuggets",
+  category: "Agricultural",
+  description: Faker::Lorem.sentence(word_count: 5),
+  location: "Backyard",
+  price: "10.00"
+)
+
+u2.listings << Listing.create(
+  title: "Chicken Eggs",
+  category: "Agricultural",
+  description: Faker::Lorem.sentence(word_count: 20),
+  location: "Backyard",
+  price: "200.00"
+)
+
+u2.save!
