@@ -1,4 +1,6 @@
 class Listing < ApplicationRecord
+  # Dont forget to validate
+  
   belongs_to :user
 
   has_one_attached :image
@@ -6,7 +8,9 @@ class Listing < ApplicationRecord
   has_rich_text :description
 
   def image_as_thumbnail
-    return nil if not image
+    # guard clause
+    return unless image.content_type.in?(%w[image/jpeg image/png])
+
     image.variant(resize_to_limit: [300, 300]).processed
   end
 
@@ -19,8 +23,8 @@ end
 
 
 # To resize images put this in _listing view
-# <%= link_to image_tag(listing.image_as_thumbnail), listing.image %>
-#
+# <%= link_to image_tag(listing.image_as_thumbnail), listing.image_as_thumbnail %>
+# add if pin.image.attached? after link
 # <% listing.pictures_as_thumbnails.each do |picture| %>
 # <%= link_to image_tag(picture, style: "width: 150px; height: 150px") %>
 # <% end %>
