@@ -1,6 +1,7 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: %i[show index]
+  before_action :require_permission, only: [:edit, :update, :destroy]
   # GET /listings or /listings.json
   def index
     @listings = Listing.all
@@ -59,7 +60,15 @@ class ListingsController < ApplicationController
     end
   end
 
+
+
   private
+  def require_permission
+    if Listing.find(params[:id]).user != current_user
+      redirect_to listings_path
+    end
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_listing
       @listing = Listing.find(params[:id])
