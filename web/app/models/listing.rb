@@ -7,6 +7,19 @@ class Listing < ApplicationRecord
   has_many_attached :pictures
   has_rich_text :description
 
+  # validate :image_type
+  #
+  #
+  #
+  # def image_type
+  #   if image.attached? == false
+  #     errors.add(:image, "is missing!")
+  #   end
+  #   if !image.content_type.in?(%('image/jpeg image/png'))
+  #     errors.add(:image, "needs to be a jpeg or png!")
+  #    end
+  #  end
+
   def image_as_thumbnail
     # guard clause
     return unless image.content_type.in?(%w[image/jpeg image/png])
@@ -16,7 +29,11 @@ class Listing < ApplicationRecord
 
   def pictures_as_thumbnails
     pictures.map do |picture|
+      if !picture.content_type.in?(%('image/jpeg image/png image/jpg'))
+        errors.add(:image, "needs to be a jpeg or png!")
+      else
       picture.variant(resize_to_limit: [300, 225]).processed
+    end
     end
   end
 end
