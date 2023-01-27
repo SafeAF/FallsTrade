@@ -18,12 +18,12 @@
               <p class="card-text"><%= list.title.truncate(160) %></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Interested</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Flag</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+                  <%= link_to "View", listing_path(list), class: "btn btn-sm btn-outline-secondary" %>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">0 Comments</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">0 Interested</button>
+                  <button type="button" id="bar" class="btn btn-sm btn-outline-secondary">Share</button>
                 </div>
-                <small class="text-muted">9 mins</small>
+                <small class="text-muted"><%= (((Time.zone.now - list.created_at) / 3600).round(2)).to_s + 'h'  %></small>
               </div>
             </div>
           </div>

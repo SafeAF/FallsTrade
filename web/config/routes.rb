@@ -13,6 +13,8 @@ Rails.application.routes.draw do
      }
    end
 
+   get 'user/profile'
+
 
   # Defines the root path route ("/")
   # root "articles#index"
