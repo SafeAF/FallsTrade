@@ -1,6 +1,6 @@
 class Listing < ApplicationRecord
   # Dont forget to validate
-  
+
   belongs_to :user
 
   has_one_attached :image
@@ -16,7 +16,7 @@ class Listing < ApplicationRecord
 
   def pictures_as_thumbnails
     pictures.map do |picture|
-      picture.variant(resize_to_limit: [150, 150]).processed
+      picture.variant(resize_to_limit: [300, 225]).processed
     end
   end
 end
