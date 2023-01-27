@@ -65,3 +65,8 @@
    white-space: nowrap;
    -webkit-overflow-scrolling: touch;
  }
+ #header-bg {
+   background-image: url("old-wagon-wheel.jpg");
+   background-size: 100%;
+   background-color: black;
+ }
