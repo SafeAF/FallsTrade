@@ -4,11 +4,14 @@ class ListingsController < ApplicationController
   before_action :require_permission, only: [:edit, :update, :destroy]
   # GET /listings or /listings.json
   def index
-    @listings = Listing.all
+    @listings = Listing.all.order(created_at: :desc)
   end
 
   # GET /listings/1 or /listings/1.json
   def show
+    @listing = Listing.find(params[:id])
+    @comment = Comment.new
+    @comments = @listing.comments.order(created_at: :desc)
     #@listing.update(views: @listing.views + 1)
   end
 
@@ -52,6 +55,8 @@ class ListingsController < ApplicationController
 
   # DELETE /listings/1 or /listings/1.json
   def destroy
+    #@listing.destroy
+    @listing = current_user.listings.find(params[:id])
     @listing.destroy
 
     respond_to do |format|
