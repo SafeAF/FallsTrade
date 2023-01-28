@@ -1,11 +1,14 @@
 class Listing < ApplicationRecord
   # Dont forget to validate
-
   belongs_to :user
 
   has_one_attached :image
   has_many_attached :pictures
   has_rich_text :description
+
+  has_many :comments
+
+  validates :description, length: {maximum: 1000}, allow_blank: false
 
   # validate :image_type
   #
