@@ -4,7 +4,16 @@ class ListingsController < ApplicationController
   before_action :require_permission, only: [:edit, :update, :destroy]
   # GET /listings or /listings.json
   def index
-    @listings = Listing.all.order(created_at: :desc)
+    def index
+
+        @listings = Listing.all.order(created_at: :desc)
+
+    end
+
+  end
+
+  def search
+
   end
 
   # GET /listings/1 or /listings/1.json
@@ -81,6 +90,6 @@ class ListingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def listing_params
-      params.require(:listing).permit(:title, :category, :description, :location, :price, :image, pictures: [])
+      params.require(:listing).permit(:title, :category, :description, :location, :price, :image,  pictures: [] )
     end
 end

@@ -3,11 +3,15 @@
 <h1>Listings</h1>
 
 <div id="listings">
+  <% if @listings.nil? %>
+  <p>Nothing found!</p>
+  <% else %>
   <% @listings.each do |listing| %>
     <%= render listing %>
     <p>
       <%= link_to "Show this listing", listing %>
     </p>
+  <% end %>
   <% end %>
 </div>
 

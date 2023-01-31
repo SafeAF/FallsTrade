@@ -9,7 +9,7 @@ Rails.application.routes.draw do
      }
    end
 
-   resources :profiles
+   resources :profiles, only: [:show]
 
    resources :likes, only: :create
 
