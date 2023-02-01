@@ -10,6 +10,9 @@ class Listing < ApplicationRecord
 
   validates :description, length: {maximum: 1000}, allow_blank: false
 
+  validates :pictures, attached: true,
+                       processable_image: true,
+                       content_type: [:png, :jpg, :jpeg]
   # validate :image_type
   #
   #
