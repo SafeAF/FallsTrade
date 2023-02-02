@@ -30,6 +30,10 @@ u3.password_confirmation = 'foobar'
 u3.name = "Bilbo Baggins"
 u3.bio = Faker::Lorem.paragraph(sentence_count: 3)
 u3.save!
+
+# adding images to listing
+#@message.image.attach(io: File.open('/path/to/file'), filename: 'file.pdf')
+
 #
 # u.listings << Listing.create(
 #   title: "Battleship",
