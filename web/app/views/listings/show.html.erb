@@ -1,7 +1,16 @@
-<p style="color: green"><%= notice %></p>
 
 <%= render @listing %>
 
+<h3>Comments</h3>
+<% @listing.comments.each do |comment|  %>
+  <p><%= comment.body %></p>
+
+<% end %>
+
+<%= link_to 'New Comment',
+  new_listing_comment_path(@listing),
+  method: :post,
+  class: "btn text-dark btn-warning btn-lg" %>
 <div>
   <%= link_to "Edit this listing", edit_listing_path(@listing) %> |
   <%= link_to "Back to listings", listings_path %>
