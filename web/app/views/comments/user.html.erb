@@ -1,0 +1,25 @@
+<h1>Comments by <%= @user.email %></h1>
+<% @comments.each do |comment|  %>
+
+     <div class="card w-70 mt-3">
+
+
+
+          <div class="row">
+            <div class="col-12">
+              <p class="card-text"></p>
+            </div>
+          </div>
+
+
+          <div class="row">
+                    <div class="col-12">
+                      <p class="card-text"><%= comment.body %>
+                      	          </div>
+                  </div>
+
+
+	</div>
+
+
+<% end %>
