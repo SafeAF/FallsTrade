@@ -9,7 +9,7 @@ Rails.application.routes.draw do
      }
    end
 
-   resources :profiles, only: [:show]
+   resources :users, only: [:show]
 
    resources :likes, only: :create
 
@@ -17,5 +17,5 @@ Rails.application.routes.draw do
      resources :comments
    end
 
-   
+
 end
