@@ -30,6 +30,11 @@ class CommentsController < ApplicationController
     end
   end
 
+  def user
+   @user = User.find(params[:id])
+   @comments = Comment.where(user_id: @user)
+end
+
   private
 
   def set_comment

@@ -74,6 +74,11 @@ class ListingsController < ApplicationController
     end
   end
 
+  ## hack to enable users posts to be displayed
+  def user
+    @user = User.find(params[:id])
+    @listings = Listing.where(user_id: @user)
+  end
 
 
   private
