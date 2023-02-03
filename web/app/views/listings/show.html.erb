@@ -9,11 +9,7 @@
   <%= render comment %>
 <% end %>
 
-<%= link_to 'New Comment',
-  new_listing_comment_path(@listing),
-  method: :post,
-  class: "btn text-dark btn-warning btn-lg" %>
-<div>
+
   <%= link_to "Edit this listing", edit_listing_path(@listing) %> |
   <%= link_to "Back to listings", listings_path %>
 
