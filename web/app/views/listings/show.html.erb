@@ -2,6 +2,7 @@
 <%= render @listing %>
 
 <%= render 'comments/form' %>
+
 <h3>Comments</h3>
 <%= turbo_stream_from "comments", id: "coments" %>
 <% @listing.comments.each do |comment|  %>

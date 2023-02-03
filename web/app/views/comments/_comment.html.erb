@@ -1,5 +1,6 @@
-<div>
+<%= turbo_frame_tag(dom_id(comment)) do %>
   <p> <em> <%= comment.user.email %> </em> </p>
   <p>  <%= comment.body %>
   </p>
-</div>
+
+  <% end %>
