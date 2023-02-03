@@ -25,6 +25,9 @@ end
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
 
+  # added in order to see new fields
+  config.scoped_views = true
+
   config.parent_controller = 'TurboDeviseController'
   config.navigational_formats = ['*/*', :html, :turbo_stream]
   config.warden do |manager|
