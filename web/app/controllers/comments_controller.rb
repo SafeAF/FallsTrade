@@ -12,8 +12,8 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         #format.turbo_stream
-    #    format.html { redirect_to listing_url(@listing), notice: "Listing was successfully created." }
-      #  format.json { render :show, status: :created, location: @listing }
+        format.html { redirect_to listing_url(@listing), notice: "Listing was successfully created." }
+        format.json { render :show, status: :created, location: @listing }
       else
         format.html { redirect_to listing_path(@listing), alert: "Reply could not be created" }
       end

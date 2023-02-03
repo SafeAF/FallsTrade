@@ -20,8 +20,8 @@ class ListingsController < ApplicationController
   def show
     @listing = Listing.find(params[:id])
     @comment = Comment.new
-    @comments = @listing.comments.reverse
-    #@comments = @listing.comments.order(created_at: :desc)
+    #@comments = @listing.comments.reverse
+    @comments = @listing.comments.order(created_at: :desc)
     #@listing.update(views: @listing.views + 1)
   end
 

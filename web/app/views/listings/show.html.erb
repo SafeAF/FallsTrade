@@ -5,7 +5,7 @@
 
 <h3>Comments</h3>
 <%= turbo_stream_from "comments", id: "coments" %>
-<% @listing.comments.each do |comment|  %>
+<% @listing.comments.reverse.each do |comment|  %>
   <%= render comment %>
 <% end %>
 
