@@ -6,7 +6,7 @@ class Listing < ApplicationRecord
   has_many_attached :pictures
   has_rich_text :description
 
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   validates :description, length: {maximum: 1000}, allow_blank: false
 
