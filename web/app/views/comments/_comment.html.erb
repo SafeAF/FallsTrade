@@ -1,5 +1,5 @@
 <%= turbo_frame_tag(dom_id(comment)) do %>
-  <p> <em> <%= comment.user.email %> | <%= comment.created_at %></em> </p>
+  <p> <em> <%= comment.user.username %> | <%= comment.created_at %></em> </p>
   <p>  <%= comment.body %>
   </p>
 
