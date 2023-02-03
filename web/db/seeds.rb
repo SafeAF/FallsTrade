@@ -11,7 +11,7 @@ u = User.new
 u.email = "frodo@example.com"
 u.password = 'password'
 u.password_confirmation = 'password'
-u.name = "Frodo Baggins"
+u.username = "Frodo Baggins"
 u.bio = Faker::Lorem.paragraph(sentence_count: 3)
 u.save!
 
@@ -19,7 +19,7 @@ u2 = User.new
 u2.email = "bilbo@example.com"
 u2.password = 'password'
 u2.password_confirmation = 'password'
-u2.name = "Bilbo Baggins"
+u2.username = "boobar"
 u2.bio = Faker::Lorem.paragraph(sentence_count: 3)
 u2.save!
 
@@ -27,7 +27,7 @@ u3 = User.new
 u3.email = "foo@foo.com"
 u3.password = 'foobar'
 u3.password_confirmation = 'foobar'
-u3.name = "Bilbo Baggins"
+u3.username = "foobar"
 u3.bio = Faker::Lorem.paragraph(sentence_count: 3)
 u3.save!
 
