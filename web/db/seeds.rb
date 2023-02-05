@@ -33,15 +33,26 @@ u3.save!
 
 # adding images to listing
 #@message.image.attach(io: File.open('/path/to/file'), filename: 'file.pdf')
-
-#
-# u.listings << Listing.create(
+(1..10).each do |list|
+list = Listing.new
+list.title = "Battleship"
+list.description = Faker::Lorem.sentence(word_count: 15)
+list.user = User.first
+list.pictures.attach(io: File.open('/home/sam/images/Camera/20220128_123608.jpg'), filename: '20220128_123608.jpg')
+list.save!
+end
+#  l1 = Listing.create(
 #   title: "Battleship",
 #   category: "Equipment",
 #   description: Faker::Lorem.sentence(word_count: 15),
 #   location: "Pirate Bay",
-#   price: "23000.00"
+#   price: "23000.00",
+#   user: User.first
 # )
+#
+#
+# l1.image.attach(io: File.open('/home/sam/images/Camera/20220128_123608.jpg'), filename: '20220128_123608.jpg')
+# l1.save
 #
 # u.listings << Listing.create(
 #   title: "Diesel Exhaust Fluid",
