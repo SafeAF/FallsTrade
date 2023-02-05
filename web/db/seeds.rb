@@ -35,7 +35,7 @@ u3.save!
 #@message.image.attach(io: File.open('/path/to/file'), filename: 'file.pdf')
 (1..10).each do |list|
 list = Listing.new
-list.title = "Battleship"
+list.title = Faker::Lorem.sentence(word_count: 5)
 list.description = Faker::Lorem.sentence(word_count: 15)
 list.user = User.first
 list.pictures.attach(io: File.open('/home/sam/images/Camera/20220128_123608.jpg'), filename: '20220128_123608.jpg')

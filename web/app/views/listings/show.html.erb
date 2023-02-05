@@ -4,7 +4,7 @@
 <%= render 'comments/form' %>
 
 <h3>Comments</h3>
-<%= turbo_stream_from "comments", id: "coments" %>
+<%= turbo_stream_from "comments", id: "comments" %>
 <% @listing.comments.reverse.each do |comment|  %>
   <%= render comment %>
 <% end %>
