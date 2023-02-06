@@ -1,3 +1,5 @@
+<%= turbo_frame_tag(dom_id(listing)) do %>
+
 <div id="<%= dom_id listing %>">
   <p>
     <strong>Title:</strong>
@@ -39,3 +41,5 @@
   <h6><%= pluralize(listing.views, "view") %></h6>
 
 </div>
+
+<% end %>

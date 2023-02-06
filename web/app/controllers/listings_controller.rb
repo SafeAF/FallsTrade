@@ -41,6 +41,7 @@ class ListingsController < ApplicationController
 
     respond_to do |format|
       if @listing.save
+        #format.turbo_stream
         format.html { redirect_to listing_url(@listing), notice: "Listing was successfully created." }
         format.json { render :show, status: :created, location: @listing }
       else
