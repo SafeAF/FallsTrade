@@ -1,5 +1,9 @@
 class Listing < ApplicationRecord
   # Dont forget to validate
+
+  broadcasts_to ->(listing) {'listings'}
+
+
   belongs_to :user
 
   has_one_attached :image
