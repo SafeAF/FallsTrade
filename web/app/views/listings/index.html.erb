@@ -2,21 +2,15 @@
 <h1>Listings</h1>
 
 
+<%= render 'form', listing: Listing.new %>
+<%= link_to "New listing", new_listing_path %>
+
 <%= turbo_stream_from "listings", id: "listings" %>
 
-  <% if @listings.nil? %>
-  <p>Nothing found!</p>
-  <% else %>
+
   <% @listings.each do |listing| %>
     <%= render listing %>
     <p>
       <%= link_to "Show this listing", listing %>
     </p>
   <% end %>
-  <% end %>
-
-</div>
-
-
-
-<%= link_to "New listing", new_listing_path %>
