@@ -2,9 +2,9 @@
 <h1>Listings</h1>
 
 
+<div id='card'>
 <%= render 'form', listing: Listing.new %>
-<%= link_to "New listing", new_listing_path %>
-
+</div>
 <%= turbo_stream_from "listings", id: "listings" %>
 
 
