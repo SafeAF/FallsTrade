@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_03_155152) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_12_155649) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -72,6 +72,30 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_03_155152) do
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
+  create_table "offerings", force: :cascade do |t|
+    t.string "title"
+    t.integer "service_provider_id", null: false
+    t.text "description"
+    t.string "category"
+    t.string "phone"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["service_provider_id"], name: "index_offerings_on_service_provider_id"
+  end
+
+  create_table "service_providers", force: :cascade do |t|
+    t.string "name"
+    t.string "company"
+    t.string "bio"
+    t.string "phone"
+    t.string "email"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_service_providers_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -99,4 +123,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_03_155152) do
   add_foreign_key "comments", "listings"
   add_foreign_key "comments", "users"
   add_foreign_key "listings", "users"
+  add_foreign_key "offerings", "service_providers"
+  add_foreign_key "service_providers", "users"
 end

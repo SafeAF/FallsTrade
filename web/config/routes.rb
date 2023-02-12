@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+  resources :offerings
+  resources :service_providers
   root 'home#index'
   get 'home/index'
 
   Rails.application.routes.draw do
+  resources :offerings
+  resources :service_providers
      devise_for :users, controllers: {
        sessions: 'users/sessions',
        registrations: 'users/registrations'
