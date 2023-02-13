@@ -21,6 +21,12 @@ Rails.application.routes.draw do
      resources :comments
    end
 
+   resources :service_providers do
+    resources :offerings 
+  end
+
+
+
    #resources :comments
 
    get "/users/:id/posts", to: "listings#user", as: "users_listings"
