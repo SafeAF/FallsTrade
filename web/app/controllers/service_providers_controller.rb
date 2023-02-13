@@ -1,6 +1,6 @@
 class ServiceProvidersController < ApplicationController
   before_action :set_service_provider, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!, except: %i[show index]
   # GET /service_providers or /service_providers.json
   def index
     @service_providers = ServiceProvider.all
@@ -22,7 +22,7 @@ class ServiceProvidersController < ApplicationController
   # POST /service_providers or /service_providers.json
   def create
     @service_provider = ServiceProvider.new(service_provider_params)
-
+    @service_provider.user = current_user
     respond_to do |format|
       if @service_provider.save
         format.html { redirect_to service_provider_url(@service_provider), notice: "Service provider was successfully created." }
@@ -49,6 +49,7 @@ class ServiceProvidersController < ApplicationController
 
   # DELETE /service_providers/1 or /service_providers/1.json
   def destroy
+    @listing = current_user.service_provider.find(params[:id])
     @service_provider.destroy
 
     respond_to do |format|
@@ -65,6 +66,6 @@ class ServiceProvidersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def service_provider_params
-      params.require(:service_provider).permit(:name, :company, :bio, :phone, :email, :user_id)
+      params.require(:service_provider).permit(:name, :company, :bio, :phone, :email)
     end
 end

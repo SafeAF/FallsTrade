@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   has_many :listings, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :service_providers
 
 
   validates :email, presence: true, uniqueness: true
