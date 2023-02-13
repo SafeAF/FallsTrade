@@ -8,11 +8,14 @@ class ServiceProvidersController < ApplicationController
 
   # GET /service_providers/1 or /service_providers/1.json
   def show
+    @service_provider = ServiceProvider.find(params[:id])
+    @offering = Offering.new
+    @offerings = @service_provider.offerings.order(created_at: :desc)
   end
 
   # GET /service_providers/new
   def new
-    @service_provider = ServiceProvider.new
+    @service_provider = ServiceProvider.new 
   end
 
   # GET /service_providers/1/edit

@@ -1,6 +1,7 @@
 class OfferingsController < ApplicationController
   before_action :set_offering, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!
+  before_action :set_service_provider
   # GET /offerings or /offerings.json
   def index
     @offerings = Offering.all
@@ -67,4 +68,7 @@ class OfferingsController < ApplicationController
     def offering_params
       params.require(:offering).permit(:title, :service_provider_id, :description, :category, :phone, :email)
     end
+
+    def set_service_provider
+      @service_provider = ServiceProvider.find(params[:servicc_provider_id])
 end
