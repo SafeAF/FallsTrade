@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :offerings
-  resources :service_providers
   root 'home#index'
   get 'home/index'
 
