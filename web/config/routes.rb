@@ -19,6 +19,8 @@ Rails.application.routes.draw do
      resources :comments
    end
 
+   resources :offerings
+   
    resources :service_providers do
     resources :offerings 
   end
