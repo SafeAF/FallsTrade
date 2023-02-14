@@ -4,7 +4,11 @@
 
 <%= render 'offerings/form', offering: Offering.new %>
 
-<h3> @service_provider.name Offerings </h3>
+<h3><%= @service_provider.name %> Offerings </h3>
+
+<% @service_provider.offerings.each do |offering|%>
+<%= render offering %>
+<% end %>
 
 <div>
   <%= link_to "Edit this service provider", edit_service_provider_path(@service_provider) %> |

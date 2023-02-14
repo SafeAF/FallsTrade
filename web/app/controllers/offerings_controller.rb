@@ -70,5 +70,7 @@ class OfferingsController < ApplicationController
     end
 
     def set_service_provider
-      @service_provider = ServiceProvider.find(params[:servicc_provider_id])
-end
+      @service_provider = ServiceProvider.find(params[:service_provider_id])
+
+    end
+  end
