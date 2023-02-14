@@ -1,10 +1,11 @@
-<%= form_with(model: offering) do |form| %>
-  <% if offering.errors.any? %>
+<%= form_with model: [@service_provider, @offering],
+    remote: true do |form| %>
+  <% if @offering.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(offering.errors.count, "error") %> prohibited this offering from being saved:</h2>
+      <h2><%= pluralize(@offering.errors.count, "error") %> prohibited this offering from being saved:</h2>
 
       <ul>
-        <% offering.errors.each do |error| %>
+        <% @offering.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>

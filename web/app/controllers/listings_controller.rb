@@ -5,8 +5,8 @@ class ListingsController < ApplicationController
   # GET /listings or /listings.json
   def index
     def index
-
-        @listings = Listing.all.order(created_at: :desc)
+        @listings = Listing.all
+        #@listings = Listing.all.order(created_at: :desc)
 
     end
 

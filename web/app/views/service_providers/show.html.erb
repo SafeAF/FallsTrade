@@ -2,6 +2,10 @@
 
 <%= render @service_provider %>
 
+<%= render 'offerings/form', offering: Offering.new %>
+
+<h3> @service_provider.name Offerings </h3>
+
 <div>
   <%= link_to "Edit this service provider", edit_service_provider_path(@service_provider) %> |
   <%= link_to "Back to service providers", service_providers_path %>
