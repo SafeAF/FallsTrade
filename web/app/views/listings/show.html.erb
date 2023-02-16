@@ -14,5 +14,8 @@
   <%= link_to "Edit this listing", edit_listing_path(@listing) %> |
   <%= link_to "Back to listings", listings_path %>
 
-  
+
+  <% if @listing.user == current_user || current_user.is_moderator || current_user.is_administrator %>
   <%= button_to "Destroy this listing", @listing, method: :delete %>
+
+<% end %>
