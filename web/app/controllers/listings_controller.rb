@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
   before_action :authenticate_user!, except: %i[show index]
-  before_action :require_permission, only: [:edit, :update, :destroy]
+  before_action :require_permission, only: [:edit, :update] #:destroy
   # GET /listings or /listings.json
   def index
       @listings = Listing.all.order(created_at: :desc)
@@ -54,10 +54,14 @@ class ListingsController < ApplicationController
 
   # DELETE /listings/1 or /listings/1.json
   def destroy
-    #@listing.destroy
-    @listing = current_user.listings.find(params[:id]) or 
-      current_user.moderator? or current_user.administrator?
-    @listing.destroy
+    if current_user.is_administrator || current_user.is_moderator
+      Listing.find(params[:id]).destroy
+    
+    else
+      @listing = current_user.listings.find(params[:id])
+      @listing.destroy
+    end
+
 
     respond_to do |format|
       format.html { redirect_to listings_url, notice: "Listing was successfully destroyed." }
@@ -74,7 +78,7 @@ class ListingsController < ApplicationController
 
   private
   def require_permission
-    if Listing.find(params[:id]).user != current_user
+    if Listing.find(params[:id]).user != current_user || !current_user.is_moderator || !current_user.is_moderator
       redirect_to listings_path
     end
   end

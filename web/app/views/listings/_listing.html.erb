@@ -41,6 +41,9 @@
 
   <h6><%= pluralize(listing.views, "view") %></h6>
 
+<% if listing.user == current_user || current_user.is_moderator || current_user.is_administrator %>
+  <%= button_to "Destroy this listing", listing, method: :delete %>
 
+<% end %>
 
 <% end %>

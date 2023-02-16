@@ -29,6 +29,8 @@ u3.password = 'foobar'
 u3.password_confirmation = 'foobar'
 u3.username = "foobar"
 u3.bio = Faker::Lorem.paragraph(sentence_count: 3)
+u3.is_moderator = true
+u3.is_administrator = true
 u3.save!
 
 # adding images to listing
