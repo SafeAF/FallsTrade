@@ -1,28 +1,15 @@
 class ListingsController < ApplicationController
-  #before_action :set_listing, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: %i[show index]
   before_action :require_permission, only: [:edit, :update, :destroy]
   # GET /listings or /listings.json
   def index
-    def index
-        @listings = Listing.all
-        #@listings = Listing.all.order(created_at: :desc)
-        if @listings.nil?
-          redirect_to listings_url
-        end
-    end
-
-  end
-
-  def search
-
+      @listings = Listing.all.order(created_at: :desc)
   end
 
   # GET /listings/1 or /listings/1.json
   def show
     @listing = Listing.find(params[:id])
     @comment = Comment.new
-    #@comments = @listing.comments.reverse
     @comments = @listing.comments.order(created_at: :desc)
     #@listing.update(views: @listing.views + 1)
   end
@@ -92,11 +79,6 @@ class ListingsController < ApplicationController
       redirect_to listings_path
     end
   end
-
-    # Use callbacks to share common setup or constraints between actions.
-    def set_listing
-      @listing = Listing.find(params[:id])
-    end
 
     # Only allow a list of trusted parameters through.
     def listing_params
