@@ -30,7 +30,7 @@
     <%= listing.price %>
   </p>
 
-<%= link_to image_tag(listing.pictures.first) %>
+<%= link_to image_tag(listing.pictures.first.variant(resize_to_limit: [300, 300]).processed) %>
 
 
 
