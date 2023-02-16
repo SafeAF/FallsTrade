@@ -1,6 +1,7 @@
 <%= turbo_frame_tag(dom_id(listing)) do %>
 
 
+
   <p>
     <strong>Title:</strong>
     <%= listing.title %>
@@ -34,6 +35,7 @@
 <% listing.pictures.each do |picture| %>
 
 <%= link_to image_tag(picture.variant(resize_to_limit: [300, 225]).processed) %>
+
 <% end %>
 
 

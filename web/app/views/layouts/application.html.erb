@@ -11,6 +11,8 @@
     <%= javascript_importmap_tags %>
   </head>
 
+<div id="container-fluid">
+
 <header>
 <%= render 'layouts/navbar' %>
 
@@ -22,5 +24,7 @@
     <%= render 'layouts/alerts' %>
 
     <%= yield %>
+ 
   </body>
+ </div>
 </html>

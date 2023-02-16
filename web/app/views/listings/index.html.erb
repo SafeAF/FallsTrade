@@ -8,11 +8,19 @@
 <%= turbo_stream_from "listings", id: "listings" %>
 
 
+
   <% @listings.each do |listing| %>
+  <div class="card" style="width:100%;">
+  <ul class="list-group">
+    <li class="list-group-item">
     <%= render listing %>
-    <p>
+
+
       <%= link_to "Show this listing", listing %>
-    </p>
+      </li>
+      </ul>
+      </div>
   
 
   <% end %>
+</ul>

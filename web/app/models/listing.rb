@@ -12,13 +12,14 @@ class Listing < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   validates :description, length: {maximum: 1000}, allow_blank: false
+  validates :title, length: {maximum: 70}, allow_blank: false
+
 
   has_many_attached :pictures
   validates :pictures, attached: true,
                        processable_image: true,
                        content_type: [:png, :jpg, :jpeg]
-
-  
+                       
   has_one_attached :image
   # validates :image, attached: true,
   # processable_image: true,
@@ -44,8 +45,6 @@ class Listing < ApplicationRecord
     image.variant(resize_to_limit: [300, 300]).processed
   end
 
-
-  # still getting nils even with this not being called
   def pictures_as_thumbnails
     pictures.map do |picture|
       if !picture.content_type.in?(%('image/jpeg image/png image/jpg'))
