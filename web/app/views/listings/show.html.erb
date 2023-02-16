@@ -3,7 +3,6 @@
 
 <%= render 'comments/form' %>
 
-<%= current_user.is_administrator %>
 
 <h3>Comments</h3>
 <%= turbo_stream_from "comments", id: "comments" %>
@@ -15,4 +14,5 @@
   <%= link_to "Edit this listing", edit_listing_path(@listing) %> |
   <%= link_to "Back to listings", listings_path %>
 
+  
   <%= button_to "Destroy this listing", @listing, method: :delete %>
