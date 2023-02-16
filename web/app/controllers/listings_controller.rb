@@ -7,7 +7,9 @@ class ListingsController < ApplicationController
     def index
         @listings = Listing.all
         #@listings = Listing.all.order(created_at: :desc)
-
+        if @listings.nil?
+          redirect_to listings_url
+        end
     end
 
   end
@@ -67,7 +69,8 @@ class ListingsController < ApplicationController
   # DELETE /listings/1 or /listings/1.json
   def destroy
     #@listing.destroy
-    @listing = current_user.listings.find(params[:id])
+    @listing = current_user.listings.find(params[:id]) or 
+      current_user.moderator? or current_user.administrator?
     @listing.destroy
 
     respond_to do |format|

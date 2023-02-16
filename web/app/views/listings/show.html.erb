@@ -3,6 +3,8 @@
 
 <%= render 'comments/form' %>
 
+<%= current_user.is_administrator %>
+
 <h3>Comments</h3>
 <%= turbo_stream_from "comments", id: "comments" %>
 <% @listing.comments.each do |comment|  %>

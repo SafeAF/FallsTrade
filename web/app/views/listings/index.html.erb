@@ -7,10 +7,14 @@
 </div>
 <%= turbo_stream_from "listings", id: "listings" %>
 
-
+  <% if @listings.nil? %>
+    listings are empty!
+  <% else %>
   <% @listings.each do |listing| %>
     <%= render listing %>
     <p>
       <%= link_to "Show this listing", listing %>
     </p>
+  <% end %>
+
   <% end %>
