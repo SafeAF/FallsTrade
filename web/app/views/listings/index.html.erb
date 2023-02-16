@@ -3,7 +3,7 @@
 
 
 <div id='card'>
-<%= render 'form', listing: Listing.new %>
+<%= link_to "New Listing", new_listing_path%>
 </div>
 <%= turbo_stream_from "listings", id: "listings" %>
 

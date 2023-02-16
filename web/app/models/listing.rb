@@ -20,9 +20,9 @@ class Listing < ApplicationRecord
 
   
   has_one_attached :image
-  validates :image, attached: true,
-  processable_image: true,
-  content_type: [:png, :jpg, :jpeg]
+  # validates :image, attached: true,
+  # processable_image: true,
+  # content_type: [:png, :jpg, :jpeg]
 
   # validate :image_type
   #
