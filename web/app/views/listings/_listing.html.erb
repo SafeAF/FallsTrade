@@ -1,43 +1,42 @@
 <%= turbo_frame_tag(dom_id(listing)) do %>
 
 
-
-  <p>
-    <strong>Title:</strong>
-    <%= listing.title %>
-  </p>
-
-  <p>
-    <strong>Posted by:</strong>
-    <%= listing.user.username %>
-  </p>
-  <p>
-    <strong>Category:</strong>
-    <%= listing.category %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= listing.description %>
-  </p>
-
-  <p>
-    <strong>Location:</strong>
-    <%= listing.location %>
-  </p>
-
-  <p>
-    <strong>Price:</strong>
-    <%= listing.price %>
-  </p>
-
-<%# this section is causing turbo to fail to update%>
+  
+<div class="col">  
+  <%# this section is causing turbo to fail to update%>
 <% listing.pictures.each do |picture| %>
 
 <%= link_to image_tag(picture.variant(resize_to_limit: [300, 225]).processed) %>
 
 <% end %>
+  </div>
 
+<div class="col">
+
+  
+    <strong>Title:</strong>
+    <%= listing.title %>
+  
+
+  
+    <strong>Posted by:</strong>
+    <%= listing.user.username %>
+
+    <strong>Category:</strong>
+    <%= listing.category %>
+
+    <strong>Description:</strong>
+    <%= listing.description %>
+
+    <strong>Location:</strong>
+    <%= listing.location %>
+
+    <strong>Price:</strong>
+    <%= listing.price %>
+
+
+
+ 
 
 
 
@@ -47,5 +46,8 @@
   <%= button_to "Destroy this listing", listing, method: :delete %>
 
 <% end %>
+
+
+  </div>
 
 <% end %>
