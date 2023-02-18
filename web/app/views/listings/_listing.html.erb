@@ -3,7 +3,7 @@
 
 <div class="row mt-2">
 <div class="col-md-2">  
-  <%# this section is causing turbo to fail to update%>
+  <%# this section is causing turbo to fail to update? %>
 <% listing.pictures.each do |picture| %>
 
 <%= link_to image_tag(picture.variant(resize_to_limit: [300, 225]).processed) %>
@@ -11,17 +11,23 @@
 <% end %>
   </div>
 
-<div class="col">
-  <div class="container">
-  
+<div class="col"> 
+
     <strong><%= listing.title %></strong>
      
     <%= listing.description %>
-  
+    
+    <div class="row">
+      <div class="col">
+        <i class="fa-solid fa-eye"></i>
 
-  
-    <strong>Posted by:</strong>
-    <%= listing.user.username %>
+        <%= pluralize(listing.views, "view") %>
+
+        <i class="fa-solid fa-user"></i>
+    
+         <%= listing.user.username %>
+      </div>
+    </div>
 
     <strong>Category:</strong>
     <%= listing.category %>
@@ -33,22 +39,14 @@
     <strong>Price:</strong>
     <%= listing.price %>
 
- 
-
- 
-
-
-
-  <h6><%= pluralize(listing.views, "view") %></h6>
-
 <% if listing.user == current_user || current_user.is_moderator || current_user.is_administrator %>
   <%= button_to "Destroy this listing", listing, method: :delete %>
-
 <% end %>
+
 <%= link_to "Show this listing", listing_path(listing.id) %>
 
 
-  </div>
+
   </div>
    </div>
 
