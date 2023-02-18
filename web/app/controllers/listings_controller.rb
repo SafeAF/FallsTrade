@@ -11,7 +11,8 @@ class ListingsController < ApplicationController
     @listing = Listing.find(params[:id])
     @comment = Comment.new
     @comments = @listing.comments.order(created_at: :desc)
-    #@listing.update(views: @listing.views + 1)
+    @listing.update(views: @listing.views + 1)
+    
   end
 
   # GET /listings/new
