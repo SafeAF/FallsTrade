@@ -4,7 +4,7 @@
 
 
 <div id='card'>
-<%= link_to "New Listing", new_listing_path%>
+<%= link_to "New Listing", new_listing_path, class: "btn btn-primary"%>
 </div>
 <%= turbo_stream_from "listings", id: "listings" %>
 

@@ -1,0 +1,3 @@
+<% if  current_user.is_moderator || current_user.is_administrator %>
+  <%= button_to "Destroy this listing", listing_path(listing.id), method: :delete %>
+<% end %>

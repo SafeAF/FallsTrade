@@ -42,7 +42,7 @@ list.description = Faker::Lorem.sentence(word_count: 15)
 list.user = User.first
 list.category = "Agricultural"
 list.location = Faker::Address.city
-list.price = rand(1..100.0)
+list.price = rand(1..100.0).round(2)
 list.pictures.attach(io: File.open('/home/sam/images/Camera/20220128_123608.jpg'), filename: '20220128_123608.jpg')
 list.save!
 end

@@ -12,9 +12,18 @@
   </div>
 
 <div class="col"> 
+    <div class="row">
+    <div class="col"> 
+        <strong><%= listing.title %></strong>
+      </div>
+      <div class="col-md-2 "> 
+        <div id="location-in-title ml-5" >
+          <i class="fa-solid fa-location-crosshairs"></i>
+          <%= listing.location %>
+       </div>
+     </div>
+    </div>
 
-    <strong><%= listing.title %></strong>
-     
     <%= listing.description %>
     
     <div class="row">
@@ -33,8 +42,7 @@
     <%= listing.category %>
 
 
-    <strong>Location:</strong>
-    <%= listing.location %>
+  
 
     <strong>Price:</strong>
     <%= listing.price %>
