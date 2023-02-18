@@ -1,8 +1,8 @@
 <%= turbo_frame_tag(dom_id(listing)) do %>
 
 
-<div class="row">
-<div class="col">  
+<div class="row mt-2">
+<div class="col-md-2">  
   <%# this section is causing turbo to fail to update%>
 <% listing.pictures.each do |picture| %>
 
@@ -46,7 +46,7 @@
   <%= button_to "Destroy this listing", listing, method: :delete %>
 
 <% end %>
-
+<%= link_to "Show this listing", listing_path(listing) %>
 
   </div>
   </div>
